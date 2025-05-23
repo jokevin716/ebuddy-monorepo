@@ -1,84 +1,99 @@
-# Turborepo starter
+# EBUDDY Technical Test - Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+This is a monorepo containing both backend and frontend applications for the EBUDDY technical test, managed with Turborepo.
 
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## 📁 Project Structure
 
 ```
-cd my-turborepo
-pnpm build
+ebuddy-monorepo/
+├── apps/
+│   ├── backend-repo/       # Express.js API with Firebase
+│   │   ├── config/         # Firebase configuration
+│   │   ├── controller/     # API controllers
+│   │   ├── core/           # Express app setup
+│   │   ├── entities/       # Data entities
+│   │   ├── middleware/     # Authentication middleware
+│   │   ├── repository/     # Firestore operations
+│   │   ├── routes/         # API routes
+│   │   └── package.json
+│   └── frontend-repo/      # Next.js app with React MUI
+│       ├── apis/           # API abstraction layer
+│       ├── app/            # Next.js App Router pages
+│       ├── components/     # React components (atomic design)
+│       ├── firebase/       # Firebase config file
+│       ├── store/          # Redux state management
+│       ├── theme/          # MUI theme configuration
+│       └── package.json
+├── packages/
+│   └── shared/             # Shared types and utilities
+│       ├── src/
+│       │   ├── types/
+│       │   │   └── user.ts # User interface definitions
+│       │   └── index.ts    # Main export file
+│       ├── package.json
+│       └── tsconfig.json
+├── package.json            # Root workspace configuration
+├── turbo.json              # Turborepo pipeline configuration
+└── README.md
 ```
 
-### Develop
+## 🚀 Quick Start
 
-To develop all apps and packages, run the following command:
+### Prerequisites
+- Node.js 18+ 
+- npm 8+
+- Firebase CLI (for emulator)
 
+## 📋 How to run this monorepo?
+
+1. On folder /apps/frontend-repo, open command prompt and type this script to install all dependencies:
+```bash
+npm i
 ```
-cd my-turborepo
-pnpm dev
+2. Do the same thing folder /apps/backend-repo, open command prompt and type this script to install all dependencies:
+```bash
+npm i
 ```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+3. Then, back to root level of this project, open command prompt and type this script to run both frontend and backend side:
+```bash
+npx turbo run dev
 ```
 
-## Useful Links
+## 🔧 Applications
 
-Learn more about the power of Turborepo:
+### Backend (@ebuddy/backend)
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+**Tech Stack:**
+- Express.js
+- Firebase Admin SDK
+- TypeScript
+- Firestore
+
+**Available Endpoints:**
+- `GET /user-data` - Fetches current user data from Firestore
+- `GET /user-data/{userId}` - Fetches a user data from Firestore from a user ID
+- `GET /users` - Fetches all user data from Firestore
+- `POST /create-user-data` - Create a user data to Firestore
+- `PUT /update-user-data` - Update current user data from Firestore
+- `PUT /update-user-data/{userId}` - Update a user data from Firestore
+
+**Authentication:**
+- Custom middleware validates request tokens
+- Both endpoints use the same User interface
+
+### Frontend (@ebuddy/frontend)
+
+**Tech Stack:**
+- Next.js 15 (App Router)
+- React 19
+- Material-UI (MUI) 7
+- Redux Toolkit
+- Firebase Authentication
+- TypeScript
+
+**Features:**
+- Mobile-responsive login form
+- Firebase authentication
+- User data fetching and updating
+- Redux state management
+- Loading/success/error states
