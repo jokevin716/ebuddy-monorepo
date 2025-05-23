@@ -1,0 +1,35 @@
+{
+  "name": "@ebuddy/backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && xcopy serviceAccountKey.json dist\\ /Y",
+    "start": "node dist/core/app.js",
+    "dev": "npm run build && firebase emulators:start",
+    "dev1": "ts-node-dev --respawn --transpile-only core/app.ts",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend for EBUDDY technical test",
+  "dependencies": {
+    "@ebuddy/shared": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0",
+    "firebase-functions": "^6.3.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.19",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": "22"
+  }
+}

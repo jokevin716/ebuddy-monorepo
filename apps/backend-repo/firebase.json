@@ -1,0 +1,27 @@
+
+{
+  "functions": {
+    "source": "."
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 9091
+    },
+    "database": {
+      "port": 9001
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}
