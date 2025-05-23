@@ -1,4 +1,4 @@
-# Backend Repository
+# Frontend Repository
 
 This is the frontend for the EBUDDY technical test, built with [Next.js](https://nextjs.org) project, bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
