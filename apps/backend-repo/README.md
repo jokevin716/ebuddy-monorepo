@@ -9,20 +9,10 @@ This is the backend for the EBUDDY technical test, built with Express.js and Fir
 
 ## Setup
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Copy the environment variables example:
-   ```
-   cp .env.example .env
-   ```
-4. Update the `.env` file with your Firebase configuration
-
-## Firebase Service Account Setup
-
-Create a `serviceAccountKey.json` file in the root directory with your Firebase service account credentials.
+Install dependencies:
+```
+npm install
+```
 
 ## Run the Development Server
 
@@ -59,6 +49,11 @@ Authorization: Bearer <firebase-id-token>
 ### Get All Users
 - **Endpoint**: GET `/api/users`
 - **Description**: Fetches all users from the USERS collection
+
+### Create User Data
+- **Endpoint**: PUT `/api/create-user-data`
+- **Description**: Create user data in Firestore
+- **Body**: JSON object with user data
 
 ### Update User Data
 - **Endpoint**: PUT `/api/update-user-data/:userId`
