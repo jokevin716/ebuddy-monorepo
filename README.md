@@ -61,7 +61,7 @@ npx turbo run dev
 
 ## 🔧 Applications
 
-### Backend (@ebuddy/backend)
+### Backend (/apps/backend-repo)
 
 **Tech Stack:**
 - Express.js
@@ -81,7 +81,7 @@ npx turbo run dev
 - Custom middleware validates request tokens
 - Both endpoints use the same User interface
 
-### Frontend (@ebuddy/frontend)
+### Frontend (/apps/frontend-repo)
 
 **Tech Stack:**
 - Next.js 15 (App Router)
